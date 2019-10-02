@@ -1,6 +1,9 @@
 <template>
     <div class="card">
         <h1>{{ card.name }}</h1>
+        <div class="waiting" v-if="card.waiting">
+            waiting
+        </div>
     </div>
 </template>
 
