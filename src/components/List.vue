@@ -7,8 +7,8 @@
             v-bind:key="card.id"
             v-bind:card="card"/>
         </div>
-        <p v-on:click.prevent="toggleForm()">+ Show card</p>
-        <NewCard v-if="showForm"></NewCard>
+        <a v-on:click.prevent="toggleForm" href="http://google.fr">+ Show Form</a>
+        <NewCard v-if="showForm"/>
     </div>
 </template>
 
@@ -24,9 +24,9 @@ export default {
     props: {
         list:Object
     },
-    data: () => {
-        showForm: true
-    },
+    data: () => ({
+        showForm: false
+    }),
     filters: {
         countDone: function(cards) {
             return cards.filter(card => card.status && card.status === "done").length;
@@ -49,5 +49,11 @@ export default {
     display: flex;
     flex-direction: columns;
     background-color: blue;
+}
+a {
+    color:#fff;
+}
+a:hover {
+    color:#efefef;
 }
 </style>
