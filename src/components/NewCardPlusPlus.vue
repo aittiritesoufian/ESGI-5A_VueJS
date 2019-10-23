@@ -1,5 +1,5 @@
 <template>
-    <Modal v-bind:open="open" v-bind:onClose="onCancel" title="New Card" >
+    <Modal :open="open" :onClose="onCancel" title="New Card" >
         <div class="grid-row">
             <label for="title">Title :</label>
             <input id="title" v-model="name"/>
@@ -24,8 +24,13 @@
 </template>
 
 <script>
+import Modal from './Modal';
+
 export default {
     name: "NewCard",
+    components: {
+        Modal
+    },
     data: () => ({
         name: "plip",
         description: "plop",

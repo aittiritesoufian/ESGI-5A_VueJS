@@ -8,13 +8,13 @@
             v-bind:card="card"/>
         </div>
         <a v-on:click.prevent="toggleForm" href="http://google.fr">+ Show Form</a>
-        <NewCard v-if="showForm" v-on:new-card="handleNewCard"/>
+        <NewCard :open="showForm" @new-card="handleNewCard" :onCancel="toggleForm"/>
     </div>
 </template>
 
 <script>
 import Card from "./Card.vue"
-import NewCard from "./NewCard.vue"
+import NewCard from "./NewCardPlusPlus.vue"
 export default {
     name: "List",
     components: {
