@@ -39,9 +39,12 @@ export default {
     }),
     methods: {
         handleNewCard: function(card, into){
+            console.log(this.lists);
             this.lists = this.lists.map(list => {
                 if(into.name === list.name) {
-                    return {...list,cards:[card, ...this.cards]};
+                    return {...list,cards:[card, ...list.cards]};
+                } else {
+                    return list;
                 }
             });
             console.log(card);
