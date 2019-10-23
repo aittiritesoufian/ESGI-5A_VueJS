@@ -1,5 +1,6 @@
 <template>
     <div class="modal" v-if="open">
+        <div class="backdrop" @click="onClose"/>
         <div class="modal-container">
             <div class="modal-header">
                 <h1>{{ title }}</h1>
@@ -43,6 +44,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 1;
 }
 .modal > .modal-container {
     min-height: 25%;
@@ -50,6 +52,7 @@ export default {
     min-width: 40%;
     max-width: 80%;
     background-color: #fff;
+    z-index:9;
 
 }
 .modal-container > .modal-header {
@@ -74,5 +77,15 @@ export default {
     margin-top: 10px;
     padding-top: 10px;
     border-top: 1px solid black;
+}
+.modal > .backdrop{
+    height:100%;
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    background-color:black;
+    opacity: 0.5;
+    z-index:8;
 }
 </style>
