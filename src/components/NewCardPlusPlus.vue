@@ -43,7 +43,7 @@ export default {
     },
     methods: {
         handleSubmit: function(){
-            this.$emit('new-card', this.$data);
+            this.$emit('new-card', { ...this.$data });
         }
     },
 }

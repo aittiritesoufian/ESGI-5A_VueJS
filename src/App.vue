@@ -1,8 +1,5 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png"> {{ message }}
-    <input-message v-bind:setMessage="setMessage"></input-message>
-    <HelloWorld :msg="fullMessage"/>
     <Board></Board>
   </div>
 </template>

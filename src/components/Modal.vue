@@ -49,6 +49,7 @@ export default {
     max-height: 75%;
     min-width: 40%;
     max-width: 80%;
+    background-color: #fff;
 
 }
 .modal-container > .modal-header {
