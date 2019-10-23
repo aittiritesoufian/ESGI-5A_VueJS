@@ -17,6 +17,7 @@
             <label>New <input type="radio" name="status" value="new" v-model="status"></label>
             <label>Done <input type="radio" name="status" value="done" v-model="status"></label>
         </div>
+        <a v-on:click.prevent="handleSubmit">Submit</a>
     </div>
 </template>
 
@@ -26,9 +27,14 @@ export default {
     data: () => ({
         name: "plip",
         description: "plop",
-        velocity: "1",
+        velocity: 0,
         status: "done"
-    })
+    }),
+    methods: {
+        handleSubmit: function(){
+            return this.$data
+        }
+    },
 }
 </script>
 
