@@ -6,11 +6,13 @@
                 <a @click="onClose">X</a>
             </div>
             <div class="modal-content">
-
+                <slot></slot> <!-- ici slot "default" -->
             </div>
             <div class="modal-footer">
-                <a @click="onClose">Cancel</a>
-                <a @click="onSubmit">Submit</a>
+                <slot name="footer">
+                    <a @click="onClose">Cancel</a>
+                    <a @click="onSubmit">Submit</a>
+                </slot>
             </div>
         </div>
     </div>
