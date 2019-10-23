@@ -7,7 +7,7 @@
             v-bind:key="card.id"
             v-bind:card="card"/>
         </div>
-        <a v-on:click.prevent="toggleForm" href="http://google.fr">+ Show Form</a>
+        <a v-on:click.prevent="toggleForm" href="http://google.fr">+ add card</a>
         <NewCard :open="showForm" @new-card="handleNewCard" :onCancel="toggleForm"/>
     </div>
 </template>
