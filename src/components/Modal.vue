@@ -56,7 +56,7 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 30px;
+    height: 80px;
     margin-bottom: 10px;
     border-bottom: 1px solid black;
 }
@@ -70,8 +70,9 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 30px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid black;
+    height: 40px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid black;
 }
 </style>
