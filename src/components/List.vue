@@ -1,6 +1,6 @@
 <template>
     <div class="list">
-        <h1>{{ list.name }}</h1>
+        <h1>{{ list.name }} {{ list.cards|countDone }}</h1>
         <div class="list-cards">
             <card
             v-for="card in list.cards"
@@ -19,6 +19,11 @@ export default {
     },
     props: {
         list:Object
+    },
+    filters: {
+        countDone: function(cards) {
+            return cards.filter(card => card.status && card.status === "done").length;
+        }
     }
 }
 </script>

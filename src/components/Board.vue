@@ -22,7 +22,7 @@ export default {
     data: () => ({
         lists: [
             {name:"1", cards:[
-                {name:"test", waiting:1},
+                {name:"test", waiting:1, status:"done"},
                 {name:"test", waiting:0}
             ]},
             {name:"2", cards:[
