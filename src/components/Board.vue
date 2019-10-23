@@ -5,7 +5,8 @@
             <list
             v-for="list in lists"
             v-bind:key="list.id"
-            v-bind:list="list">
+            v-bind:list="list"
+            v-bind:onNewCard="handleNewCard">
 
             </list>
         </div>
@@ -35,7 +36,17 @@ export default {
             ]}
         ],
         name: "Board 1",
-    })
+    }),
+    methods: {
+        handleNewCard: function(card, into){
+            this.lists = this.lists.map(list => {
+                if(into.name === list.name) {
+                    return {...list,cards:[card, ...this.cards]};
+                }
+            });
+            console.log(card);
+        }
+    },
 }
 </script>
 

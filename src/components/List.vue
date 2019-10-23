@@ -8,7 +8,7 @@
             v-bind:card="card"/>
         </div>
         <a v-on:click.prevent="toggleForm" href="http://google.fr">+ Show Form</a>
-        <NewCard v-if="showForm"/>
+        <NewCard v-if="showForm" v-on:new-card="handleNewCard"/>
     </div>
 </template>
 
@@ -22,7 +22,8 @@ export default {
         NewCard
     },
     props: {
-        list:Object
+        list:Object,
+        onNewCard: Function
     },
     data: () => ({
         showForm: false
@@ -35,6 +36,10 @@ export default {
     methods: {
         toggleForm: function(){
             this.showForm = !this.showForm;
+        },
+        handleNewCard: function(card){
+            this.toggleForm();
+            this.onNewCard(card,this.list);
         }
     }
 }

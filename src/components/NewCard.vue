@@ -32,7 +32,7 @@ export default {
     }),
     methods: {
         handleSubmit: function(){
-            return this.$data
+            this.$emit('new-card', this.$data);
         }
     },
 }
