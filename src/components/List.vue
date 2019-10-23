@@ -53,7 +53,7 @@ export default {
     max-height: 100%;
     display: flex;
     flex-direction: columns;
-    background-color: blue;
+    background-color: orange;
 }
 a {
     color:#fff;
