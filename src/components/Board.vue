@@ -24,16 +24,16 @@ export default {
         dragItem: null,
         lists: [
             {name:"1", cards:[
-                {name:"test", waiting:1, status:"done"},
-                {name:"test", waiting:0}
+                {name:"test1", waiting:1, status:"done"},
+                {name:"test2", waiting:0}
             ]},
             {name:"2", cards:[
-                {name:"test", waiting:1},
-                {name:"test", waiting:0}
+                {name:"test3", waiting:1},
+                {name:"test4", waiting:0}
             ]},
             {name:"3", cards:[
-                {name:"test", waiting:1},
-                {name:"test", waiting:0}
+                {name:"test5", waiting:1},
+                {name:"test6", waiting:0}
             ]}
         ],
         name: "Board 1",
@@ -65,7 +65,7 @@ export default {
                     list.cards = list.cards.filter(item => item.name !== card.name);
                 }
                 if(list.name == to.name) {
-                    list.cards = [card,...list.cards];
+                    list.cards = [...list.cards,card];
                 }
                 return list;
             })
