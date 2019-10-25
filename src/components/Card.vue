@@ -1,5 +1,5 @@
 <template>
-    <div class="card" draggable @dragStart="onDrag">
+    <div class="card" draggable @dragstart="onDrag">
         <h1>{{ card.name }}</h1>
         <div class="waiting" v-if="card.waiting">
             waiting

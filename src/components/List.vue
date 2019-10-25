@@ -6,7 +6,7 @@
             v-for="card in list.cards"
             v-bind:key="card.id"
             v-bind:card="card"
-            :onDrag="handleDragCard" />
+            :onDrag="handleDragCard(card)" />
         </div>
         <a v-on:click.prevent="toggleForm" href="http://google.fr">+ add card</a>
         <NewCard :open="showForm" @new-card="handleNewCard" :onCancel="toggleForm"/>
@@ -44,7 +44,7 @@ export default {
             this.onNewCard(card,this.list);
         },
         handleDragCard: function(card) {
-            return () => onDrag(card,this.list);
+            return () => this.onDrag(card,this.list);
         }
     }
 }
