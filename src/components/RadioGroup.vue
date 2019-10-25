@@ -6,7 +6,8 @@
             <input
                 type="radio"
                 :name="name"
-                value="choice.id"
+                :checked="value === choice.id"
+                :value="choice.id"
                 @change="$emit('input',$event.target.value)"
             />
         </label>
