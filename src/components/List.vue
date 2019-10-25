@@ -5,7 +5,8 @@
             <card
             v-for="card in list.cards"
             v-bind:key="card.id"
-            v-bind:card="card"/>
+            v-bind:card="card"
+            :onDrag="handleDragCard" />
         </div>
         <a v-on:click.prevent="toggleForm" href="http://google.fr">+ add card</a>
         <NewCard :open="showForm" @new-card="handleNewCard" :onCancel="toggleForm"/>
@@ -33,6 +34,7 @@ export default {
             return cards.filter(card => card.status && card.status === "done").length;
         }
     },
+    inject: ['onDrag'],
     methods: {
         toggleForm: function(){
             this.showForm = !this.showForm;
@@ -40,6 +42,9 @@ export default {
         handleNewCard: function(card){
             this.toggleForm();
             this.onNewCard(card,this.list);
+        },
+        handleDragCard: function(card) {
+            return () => onDrag(card,this.list);
         }
     }
 }

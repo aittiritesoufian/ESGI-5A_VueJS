@@ -48,8 +48,14 @@ export default {
                 }
             });
             console.log(card);
+        },
+        onDrag(card,list) {
+
         }
     },
+    provide: () => ({
+        onDrag: this.onDrag
+    }),
 }
 </script>
 
