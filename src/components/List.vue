@@ -1,5 +1,5 @@
 <template>
-    <div class="list">
+    <div class="list" @dragover.prevent @drop="onDrop(list)">
         <h1>{{ list.name }} {{ list.cards|countDone }}</h1>
         <div class="list-cards">
             <card
@@ -34,7 +34,7 @@ export default {
             return cards.filter(card => card.status && card.status === "done").length;
         }
     },
-    inject: ['onDrag'],
+    inject: ['onDrag','onDrop'],
     methods: {
         toggleForm: function(){
             this.showForm = !this.showForm;

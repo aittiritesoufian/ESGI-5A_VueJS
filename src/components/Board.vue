@@ -57,10 +57,25 @@ export default {
                 card,
                 from: list
             }
+        },
+        onDrop: function(to) {
+            const {card,from} = this.dragItem;
+            this.lists = this.lists.map(list => {
+                if(list.name === from.name){
+                    list.cards = list.cards.filter(item => item.name !== card.name);
+                }
+                if(list.name == to.name) {
+                    list.cards = [card,...list.cards];
+                }
+                return list;
+            })
         }
     },
     provide: function() {
-        return {onDrag: this.onDrag}
+        return {
+            onDrag: this.onDrag,
+            onDrop: this.onDrop
+            }
     },
 }
 </script>
