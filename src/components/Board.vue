@@ -21,6 +21,7 @@ export default {
         list: List
     },
     data: () => ({
+        dragItem: null,
         lists: [
             {name:"1", cards:[
                 {name:"test", waiting:1, status:"done"},
@@ -49,13 +50,18 @@ export default {
             });
             console.log(card);
         },
-        onDrag(card,list) {
-
+        onDrag: function(card,list) {
+            console.log(this.dragItem);
+            console.log(card);
+            this.dragItem = {
+                card,
+                from: list
+            }
         }
     },
-    provide: () => ({
-        onDrag: this.onDrag
-    }),
+    provide: function() {
+        return {onDrag: this.onDrag}
+    },
 }
 </script>
 
