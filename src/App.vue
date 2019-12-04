@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <router-link to="/">Board</router-link>
+    <router-link to="/list/1">List 1</router-link>
+    <router-link to="/list/2">List 2</router-link>
+    <router-view></router-view>
     <Board></Board>
   </div>
 </template>
@@ -14,7 +18,8 @@ export default {
   components: {
     HelloWorld,
     InputMessage,
-    Board
+    Board,
+    
   },
   created() {
     console.log('Component created')

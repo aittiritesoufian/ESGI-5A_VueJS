@@ -1,5 +1,6 @@
 <template>
     <div class="list" @dragover.prevent @drop="onDrop(list)">
+        <button @click="goToList">Go to list</button>
         <h1>{{ list.name }} {{ list.cards|countDone }}</h1>
         <div class="list-cards">
             <card
@@ -23,7 +24,7 @@ export default {
         NewCard
     },
     props: {
-        list:Object,
+        list: Object,
         onNewCard: Function
     },
     data: () => ({
@@ -45,6 +46,14 @@ export default {
         },
         handleDragCard: function(card) {
             return () => this.onDrag(card,this.list);
+        },
+        goToList: function(){
+            this.$router.push({
+                name: "listHome",
+                params: {
+                    listid: this.list.name
+                }
+            });
         }
     }
 }

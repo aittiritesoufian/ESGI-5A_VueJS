@@ -22,8 +22,12 @@
 </template>
 
 <script>
+
 export default {
     name: "NewCard",
+    component: {
+
+    },
     data: () => ({
         name: "plip",
         description: "plop",
