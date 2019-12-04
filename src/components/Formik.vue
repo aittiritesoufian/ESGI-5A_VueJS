@@ -1,5 +1,5 @@
 <template>
-    <form onSubmit={props.handleSubmit}>
+    <form @submit={onSubmit}>
         <slot></slot>
         <button type="submit">Submit</button>
     </form>
@@ -9,10 +9,13 @@
 export default {
     name: "Formik",
     props: {
-        handleSubmit: Function
+        inheritAttrs: Object
     },
     methods: {
-        
+        onSubmit: function(e){
+            e.preventDefault();
+            this.$emit('onSubmit', { ...props.inheritAttrs });
+        }
     }
 }
 </script>

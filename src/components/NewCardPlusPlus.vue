@@ -1,6 +1,6 @@
 <template>
     <Modal :open="open" :onClose="onCancel" title="New Card" >
-        <Formik :handleSubmit="handleSubmit">
+        <Formik @onSubmit="handleSubmit" :initials_value="values">
             <Fields
                 v-for="field in fields"
                 v-bind:key="field.id"
@@ -24,10 +24,12 @@ export default {
         RadioGroup
     },
     data: () => ({
-        name: "plip",
-        description: "plop",
-        velocity: 0,
-        status: "done",
+        values: {
+            name: "plip",
+            description: "plop",
+            velocity: 0,
+            status: "done",
+        },
         fields: [
             {
                 type: "text",
