@@ -6,29 +6,6 @@
                 v-bind:key="field.id"
                 :field="field"></Fields>
         </Formik>
-        <div class="grid-row">
-            <label for="title">Title :</label>
-            <input id="title" v-model="name"/>
-        </div>
-        <div class="grid-row">
-            <label for="description">Description :</label>
-            <input id="description" v-model="description"/>
-        </div>
-        <div class="grid-row">
-            <label for="velocity">Velocity :</label>
-            <input id="velocity" v-model="velocity"/>
-        </div>
-        <div class="grid-row">
-            <RadioGroup
-                v-model="status"
-                name="status"
-                label="Status"
-                :choices="[{id:'new', text:'Text'},{id:'done', text:'Done'}]"
-            />
-        </div>
-        <template slot="footer">
-            <a v-on:click.prevent="handleSubmit">Submit</a>
-        </template>
     </Modal>
 </template>
 
