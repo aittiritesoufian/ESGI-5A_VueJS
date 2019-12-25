@@ -8,13 +8,19 @@
 <script>
 export default {
     name: "Formik",
+    data: () => ({
+        values: {}
+    }),
     props: {
         fields: Array
     },
     methods: {
         onSubmit: function(e){
             e.preventDefault();
-            this.$emit('onSubmit', { ...this.fields });
+            for (let i = 0; i < this.fields.length; i++) {
+                this.values[this.fields[i].name] = this.fields[i].value;
+            }
+            this.$emit('onSubmit', { ...this.values });
         }
     }
 }

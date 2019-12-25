@@ -21,11 +21,10 @@
                 v-for="option in field.options"
                 v-bind:key="option.value">{{ option.label }}
             <input
-                
                 :type="field.type"
                 :name="field.name"
                 :value="option.value"
-                :checked="option.checked == 1" 
+                :checked="field.value == option.value" 
                 v-model="option.value"/>
                 </label>
         </div>
@@ -51,7 +50,8 @@
                 <option
                     v-for="option in field.options"
                     v-bind:key="option.value"
-                    :value="option.value">
+                    :value="option.value"
+                    :selected="field.value == option.value">
                     {{ option.label }}
                 </option>
             </select>

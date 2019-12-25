@@ -40,6 +40,8 @@ export default {
     }),
     methods: {
         handleNewCard: function(card, into){
+            console.log(card);
+            console.log(into);
             console.log(this.lists);
             this.lists = this.lists.map(list => {
                 if(into.name === list.name) {
@@ -48,7 +50,7 @@ export default {
                     return list;
                 }
             });
-            console.log(card);
+            console.log(this.lists);
         },
         onDrag: function(card,list) {
             console.log(this.dragItem);

@@ -11,7 +11,6 @@
 
 <script>
 import Modal from './Modal';
-import RadioGroup from './RadioGroup';
 import Formik from './Formik';
 import Fields from './Fields';
 
@@ -20,23 +19,17 @@ export default {
     components: {
         Modal,
         Formik,
-        Fields,
-        RadioGroup
+        Fields
     },
     data: () => ({
-        values: {
-            name: "plip",
-            description: "plop",
-            velocity: 0,
-            status: "done",
-        },
+        values: {},
         fields: [
             {
                 type: "text",
-                name: "title",
-                id: "title",
-                label: "Title",
-                placeholder: "Title",
+                name: "name",
+                id: "name",
+                label: "Name",
+                placeholder: "Name",
                 disable: false,
                 value:"plop"
             },
@@ -100,6 +93,7 @@ export default {
                 label: "Statut",
                 placeholder: "Statut",
                 disable: false,
+                value: "done",
                 options: [
                     {
                         value: "text",
@@ -107,8 +101,7 @@ export default {
                     },
                     {
                         value: "done",
-                        label: "Done",
-                        checked:true,
+                        label: "Done"
                     }
                 ]
             }
@@ -121,9 +114,9 @@ export default {
     methods: {
         handleSubmit: function(e){
             console.log(e);
-            this.values = null; // remplir les valeurs avec ce que contient les value du e (voir si il ne faut pas rendre indépendante les valeurs des champs au moment de la soumission du formulaire avant le renvoi de l'event onSubmit)
+            this.values = e;
             console.log(this.$data);
-            this.$emit('new-card', { ...this.$data });
+            this.$emit('new-card', { ...this.$data.values });
         }
     },
 }
