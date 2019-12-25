@@ -1,7 +1,7 @@
 <template>
-    <form @submit={onSubmit}>
+    <form @submit="onSubmit">
         <slot></slot>
-        <button type="submit">Submit</button>
+        <button type="submit" >Submit</button>
     </form>
 </template>
 
@@ -9,12 +9,12 @@
 export default {
     name: "Formik",
     props: {
-        inheritAttrs: Object
+        fields: Array
     },
     methods: {
         onSubmit: function(e){
             e.preventDefault();
-            this.$emit('onSubmit', { ...props.inheritAttrs });
+            this.$emit('onSubmit', { ...this.fields });
         }
     }
 }

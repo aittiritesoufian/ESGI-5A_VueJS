@@ -1,6 +1,6 @@
 <template>
     <Modal :open="open" :onClose="onCancel" title="New Card" >
-        <Formik @onSubmit="handleSubmit" :initials_value="values">
+        <Formik @onSubmit="handleSubmit" :fields="fields">
             <Fields
                 v-for="field in fields"
                 v-bind:key="field.id"
@@ -119,7 +119,10 @@ export default {
         open: Boolean
     },
     methods: {
-        handleSubmit: function(){
+        handleSubmit: function(e){
+            console.log(e);
+            this.values = null; // remplir les valeurs avec ce que contient les value du e (voir si il ne faut pas rendre indépendante les valeurs des champs au moment de la soumission du formulaire avant le renvoi de l'event onSubmit)
+            console.log(this.$data);
             this.$emit('new-card', { ...this.$data });
         }
     },

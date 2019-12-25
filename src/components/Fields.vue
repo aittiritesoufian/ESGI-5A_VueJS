@@ -9,6 +9,7 @@
                 :id="field.id"
                 :placeholder="field.placeholder"
                 :value="field.value"
+                v-model="field.value"
                 :disabled="field.disable == true"
                 :checked="field.value == 1 && field.type == 'checkbox'" />
         </label>
@@ -24,7 +25,8 @@
                 :type="field.type"
                 :name="field.name"
                 :value="option.value"
-                :checked="option.checked == 1" />
+                :checked="option.checked == 1" 
+                v-model="option.value"/>
                 </label>
         </div>
         <label
@@ -44,7 +46,8 @@
                 :name="field.name"
                 :id="field.id"
                 :placeholder="field.placeholder"
-                :disabled="field.disable == true">
+                :disabled="field.disable == true"
+                v-model="option.value">
                 <option
                     v-for="option in field.options"
                     v-bind:key="option.value"
